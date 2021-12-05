@@ -42,5 +42,4 @@
 
 ### VENDOR
 /(vendor|system/vendor)/bin/main_abox                       u:object_r:abox_exec:s0
-/(vendor|system/vendor)/bin/wlbtd                           u:object_r:wlbtd_exec:s0
 
