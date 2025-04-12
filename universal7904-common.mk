@@ -14,8 +14,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.service \
     android.hardware.audio.effect@7.0-impl \
-    libprocessgroup.vendor \
-    libtinycompress \
     audio.r_submix.default \
     audio.usb.default
 
@@ -47,10 +45,6 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider-service.samsung
 
-PRODUCT_PACKAGES += \
-    libexpat.vendor \
-    libhwjpeg
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images_vendor
@@ -61,8 +55,7 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey \
-    android.hardware.drm@1.3.vendor
+    android.hardware.drm-service.clearkey
 
 # FastCharge
 PRODUCT_PACKAGES += \
@@ -84,35 +77,20 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
 
-# GPS
-PRODUCT_PACKAGES += \
-    android.frameworks.sensorservice@1.0.vendor \
-    android.hardware.gnss@2.1.vendor
-
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl-2.1 \
-    libgui.vendor
+    android.hardware.graphics.mapper@2.0-impl-2.1
 
 PRODUCT_PACKAGES += \
     android.hardware.composer.hwc3-service.slsi \
-    gralloc.universal7904 \
-    libGrallocWrapper \
-    libion_exynos
+    gralloc.universal7904
 
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.samsung \
     android.hardware.health-service.samsung-recovery
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.allocator@1.0.vendor \
-    libhidltransport.vendor \
-    libhwbinder.vendor \
-    libunwindstack.vendor
 
 # Init
 PRODUCT_PACKAGES += \
@@ -173,10 +151,6 @@ PRODUCT_PACKAGES += \
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-3.9.1-vendorcompat
-
 # RRO (Runtime Resource Overlay)
 PRODUCT_ENFORCE_RRO_TARGETS += *
 
@@ -222,11 +196,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-vendorcompat \
-    libprotobuf-cpp-lite-vendorcompat
-
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -235,15 +204,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fastbootd \
     init.recovery.exynos7904.rc
-
-# RIL
-PRODUCT_PACKAGES += \
-    android.hardware.radio@1.4.vendor \
-    android.hardware.radio.config@1.2.vendor \
-    android.hardware.radio.deprecated@1.0.vendor \
-    libnetutils.vendor \
-    libsqlite.vendor \
-    vendor.samsung.hardware.radio@2.1.vendor
 
 PRODUCT_PACKAGES += \
     secril_config_svc
@@ -259,15 +219,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl.samsung \
-    android.hardware.sensors@1.0-service \
-    libsensorndkbridge
-
-# Shims
-PRODUCT_PACKAGES += \
-    libcamera_metadata_helper \
-    libcrypto_shim.vendor \
-    libshim_audioparams \
-    libshim_sensorndkbridge
+    android.hardware.sensors@1.0-service
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
