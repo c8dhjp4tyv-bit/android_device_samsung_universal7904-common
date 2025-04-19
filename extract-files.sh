@@ -38,7 +38,7 @@ function blob_fixup {
 	vendor/bin/hw/rild | vendor/lib*/libsec-ril*.so)
 		"$PATCHELF" --replace-needed libril.so libril-samsung.so "$2"
 		;;
-        vendor/lib/libaudio_soundtrigger.so | vendor/lib/soundfx/libaudioeffectoffload.so | vendor/lib64/soundfx/libaudioeffectoffload.so)
+        vendor/lib/libaudio_soundtrigger.so | vendor/lib/libaudioroute.universal7904.so | vendor/lib/soundfx/libaudioeffectoffload.so | vendor/lib64/soundfx/libaudioeffectoffload.so)
 		"$PATCHELF" --replace-needed libtinyalsa.so libtinyalsa.universal7904.so "$2"
 		;;
 	vendor/lib/hw/audio.primary.exynos7904.so)
@@ -47,7 +47,7 @@ function blob_fixup {
 		grep -q libshim_audioparams.so "$2" || "$PATCHELF" --add-needed libshim_audioparams.so "$2"
 		sed -i 's/str_parms_get_str/str_parms_get_mod/g' "$2"
 		;;
-	vendor/lib/libwvhidl.so)
+	vendor/lib/libwvhidl.so | vendor/lib/mediadrm/libwvdrmengine.so)
 		"$PATCHELF" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "$2"
 		grep -q libcrypto_shim.so "$2" || "$PATCHELF" --add-needed libcrypto_shim.so "$2"
 		;;
