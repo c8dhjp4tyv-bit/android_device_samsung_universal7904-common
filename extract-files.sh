@@ -38,7 +38,7 @@ function blob_fixup {
 	vendor/bin/hw/rild | vendor/lib*/libsec-ril*.so)
 		"$PATCHELF" --replace-needed libril.so libril-samsung.so "$2"
 		;;
-        vendor/lib/libaudio_soundtrigger.so | vendor/lib/libaudioroute.universal7904.so | vendor/lib/soundfx/libaudioeffectoffload.so | vendor/lib64/soundfx/libaudioeffectoffload.so)
+        vendor/lib/libaudio_soundtrigger.so | vendor/lib/libaudioroute.universal7904.so | vendor/lib/soundfx/libaudioeffectoffload.so)
 		"$PATCHELF" --replace-needed libtinyalsa.so libtinyalsa.universal7904.so "$2"
 		;;
 	vendor/lib/hw/audio.primary.exynos7904.so)
