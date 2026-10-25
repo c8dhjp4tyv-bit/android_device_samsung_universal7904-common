@@ -86,7 +86,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.composer.hwc3-service.slsi \
-    gralloc.universal7904
+    gralloc.universal7904 \
+    libGrallocWrapper \
+    libion_exynos
 
 # Health
 PRODUCT_PACKAGES += \
@@ -227,10 +229,10 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+    hardware/samsung_slsi-linaro/exynos/gralloc/gralloc3 \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/samsung \
-    hardware/samsung_slsi-linaro/exynos/gralloc/gralloc3 \
     hardware/samsung_slsi/libbt
 
 # Speed profile services and wifi-service to reduce RAM and storage
@@ -252,7 +254,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.samsung
+    vendor.lineage.touch-service.samsung
 
 # Update
 AB_OTA_UPDATER := false
