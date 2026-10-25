@@ -154,13 +154,8 @@
             <instance>imsd2</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <hal format="aidl">
         <name>vendor.lineage.touch</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IGloveMode</name>
-            <instance>default</instance>
-        </interface>
+        <fqname>IGloveMode/default</fqname>
     </hal>
 </manifest>
