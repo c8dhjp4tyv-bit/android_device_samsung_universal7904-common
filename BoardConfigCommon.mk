@@ -8,7 +8,6 @@ TARGET_SOC := exynos7904
 TARGET_BOOTLOADER_BOARD_NAME := exynos7904
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-include hardware/samsung_slsi-linaro/config/BoardConfig7904.mk
 
 # Architecture
 TARGET_ARCH := arm64
@@ -24,6 +23,9 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+
+# Must come after TARGET_ARCH, hwc.mk checks it to pick 64-bit DECON addresses
+include hardware/samsung_slsi-linaro/config/BoardConfig7904.mk
 
 # Camera
 ifeq ($(TARGET_DEVICE),a40)
