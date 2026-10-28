@@ -7,6 +7,9 @@
 
 set -e
 
+# patchelf 0.9 breaks the GNSS HALs on --set-soname
+export PATCHELF_VERSION=0_17_2
+
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d ${MY_DIR} ]]; then MY_DIR="${PWD}"; fi
@@ -20,8 +23,24 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
+function add_needed_if_missing {
+	"$PATCHELF" --print-needed "$2" | grep -Fxq "$1" || "$PATCHELF" --add-needed "$1" "$2"
+}
+
 function blob_fixup {
 	case "$1" in
+	vendor/lib64/libOpenCv.camera.samsung.so)
+		add_needed_if_missing libcomparetf2_shim.so "$2"
+		;;
+	vendor/lib64/hw/vendor.samsung.hardware.gnss@2.0-impl.so)
+		"$PATCHELF" --remove-needed libhwbinder.so "$2"
+		;;
+	vendor/lib64/libkeymaster_helper_vendor.so)
+		add_needed_if_missing libshim_keymaster.so "$2"
+		;;
+	vendor/lib/lib_SamsungRec_07010.so | vendor/lib/lib_SoundAlive_SRC384_ver320.so)
+		add_needed_if_missing libc++.so "$2"
+		;;
 	vendor/lib64/libhifills.so)
 		grep -q libunwindstack.so "$2" || "$PATCHELF" --add-needed "libunwindstack.so" "$2"
 		grep -q libdemangle.so "$2" || "$PATCHELF" --add-needed "libdemangle.so" "$2"
@@ -31,7 +50,12 @@ function blob_fixup {
 		;;
 	vendor/lib*/libexynoscamera.so | vendor/lib*/libexynoscamera3.so)
 		"$PATCHELF" --remove-needed "libcamera_client.so" "$2"
-		"$PATCHELF" --remove-needed "libgui.so" "$2"
+		add_needed_if_missing libcamera_metadata_helper.so "$2"
+		if [[ "$1" == */libexynoscamera.so ]]; then
+			add_needed_if_missing libgui.so "$2"
+		else
+			"$PATCHELF" --remove-needed "libgui.so" "$2"
+		fi
 		;;
 	vendor/lib*/libsensorlistener.so)
 		grep -q libshim_sensorndkbridge.so "$2" || "$PATCHELF" --add-needed "libshim_sensorndkbridge.so" "$2"
