@@ -596,13 +596,3 @@ service tzts_service /vendor/bin/tzts_daemon
 on property:ro.boot.product.model=SM-M205FN
     setprop ro.boot.product.hardware.sku NFC
 
-# Start NFC on supported variants
-service nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service.samsung
-    override
-    class hal
-    user nfc
-    group nfc
-    disabled
-
-on property:ro.boot.product.hardware.sku=NFC
-    start nfc_hal_service
