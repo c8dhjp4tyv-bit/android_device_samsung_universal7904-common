@@ -27,7 +27,7 @@ vendor/firmware/calliope_sram.bin
 -vendor/lib/soundfx/libswdap.so
 -vendor/lib/vndk/libaudioroute.so:vendor/lib/libaudioroute.universal7904.so;MODULE=libaudioroute.universal7904;FIX_SONAME
 -vendor/lib/vndk/libtinyalsa.so:vendor/lib/libtinyalsa.universal7904.so;MODULE=libtinyalsa.universal7904;FIX_SONAME
-vendor/lib64/libfloatingfeature.so
+-vendor/lib64/libfloatingfeature.so
 
 # DRM
 -vendor/bin/hw/android.hardware.drm@1.3-service.widevine

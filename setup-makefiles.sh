@@ -23,12 +23,10 @@ fi
 source "${HELPER}"
 
 function vendor_imports() {
-    cat <<EOF >>"$1"
-                "device/samsung/universal7904-common",
-                "hardware/samsung",
-                "hardware/samsung_slsi-linaro/exynos",
-                "hardware/samsung_slsi-linaro/graphics",
-EOF
+    printf '\t\t"device/samsung/universal7904-common",\n' >> "$1"
+    printf '\t\t"hardware/samsung",\n' >> "$1"
+    printf '\t\t"hardware/samsung_slsi-linaro/exynos",\n' >> "$1"
+    printf '\t\t"hardware/samsung_slsi-linaro/graphics",\n' >> "$1"
 }
 
 # Initialize the helper for common

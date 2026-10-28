@@ -225,11 +225,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-vendorcompat \
-    libprotobuf-cpp-lite-vendorcompat
-
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -268,9 +263,12 @@ PRODUCT_PACKAGES += \
 # Shims
 PRODUCT_PACKAGES += \
     libcamera_metadata_helper \
+    libcomparetf2_shim \
     libcrypto_shim.vendor \
     libshim_audioparams \
-    libshim_sensorndkbridge
+    libshim_keymaster \
+    libshim_sensorndkbridge \
+    libdemangle
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
