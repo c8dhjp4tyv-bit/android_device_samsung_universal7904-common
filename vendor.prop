@@ -22,10 +22,6 @@ bluetooth.profile.sap.server.enabled=true
 ## Dalvik
 dalvik.vm.lockprof.threshold=500
 
-## Fdsan
-# Set fdsan to the warn_once severity level
-debug.fdsan=warn_once
-
 ## FRP
 # Disable invocation of oem_lock
 ro.frp.pst=/dev/block/persistent
