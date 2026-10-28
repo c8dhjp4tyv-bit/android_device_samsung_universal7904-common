@@ -593,13 +593,3 @@ service tzts_service /vendor/bin/tzts_daemon
     group system
     disabled
 
-# Start NFC on supported variants
-service nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service.samsung
-    override
-    class hal
-    user nfc
-    group nfc
-    disabled
-
-on property:ro.boot.product.hardware.sku=NFC
-    start nfc_hal_service
