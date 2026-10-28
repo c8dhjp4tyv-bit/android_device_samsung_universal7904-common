@@ -1,0 +1,22 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libshim_keymaster",
+    srcs: ["stack.c"],
+    shared_libs: ["libcrypto"],
+    stl: "none",
+    compile_multilib: "64",
+    vendor: true,
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}
+
+cc_test_host {
+    name: "libshim_keymaster_test",
+    srcs: ["stack.c", "stack_test.cpp"],
+    shared_libs: ["libcrypto"],
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}
