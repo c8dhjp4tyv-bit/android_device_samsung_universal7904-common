@@ -64,9 +64,6 @@ endif
 ODM_MANIFEST_SKUS += NFC
 ODM_MANIFEST_NFC_FILES := $(COMMON_PATH)/manifest_nfc.xml
 
-# hwservicemanager
-$(call soong_config_set,hwservicemanager,need_no_selinux_hack,true)
-
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
