@@ -16,6 +16,9 @@ persist.data.wda.           u:object_r:persist_data_wda_prop:s0
 # CAMERA
 persist.vendor.sys.camera.  u:object_r:vendor_camera_prop:s0
 
+# HWC
+vendor.hwc.                 u:object_r:vendor_hwc_prop:s0
+
 # GPS
 ro.spid.gps.                u:object_r:vendor_gps_prop:s0
 

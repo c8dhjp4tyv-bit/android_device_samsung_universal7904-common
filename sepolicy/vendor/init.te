@@ -1,3 +1,4 @@
 allow init efs_file:dir mounton;
 allow init socket_device:sock_file { create setattr unlink };
 allow init sysfs_block_writable:file { open write };
+allow init vendor_block_device:lnk_file relabelto;

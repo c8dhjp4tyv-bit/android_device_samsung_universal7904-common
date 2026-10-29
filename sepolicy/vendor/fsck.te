@@ -1,3 +1,6 @@
 allow fsck cpefs_block_device:blk_file { ioctl open read write };
 allow fsck efs_block_device:blk_file { ioctl open read write };
 allow fsck sysfs_battery:dir search;
+
+# fsck.f2fs stats the partition sysfs node and carries on without it
+dontaudit fsck sysfs:file getattr;
