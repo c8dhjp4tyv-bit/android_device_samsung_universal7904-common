@@ -1,0 +1,14 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libshim_fdsan",
+    srcs: ["fdsan.c"],
+    stl: "none",
+    compile_multilib: "64",
+    vendor: true,
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}

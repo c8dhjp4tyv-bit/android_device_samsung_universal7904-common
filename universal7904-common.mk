@@ -266,6 +266,7 @@ PRODUCT_PACKAGES += \
     libcomparetf2_shim \
     libcrypto_shim.vendor \
     libshim_audioparams \
+    libshim_fdsan \
     libshim_keymaster \
     libshim_sensorndkbridge \
     libdemangle
