@@ -55,6 +55,7 @@ function blob_fixup {
 			add_needed_if_missing libgui.so "$2"
 		else
 			"$PATCHELF" --remove-needed "libgui.so" "$2"
+			add_needed_if_missing libshim_fdsan.so "$2"
 		fi
 		;;
 	vendor/lib*/libsensorlistener.so)
